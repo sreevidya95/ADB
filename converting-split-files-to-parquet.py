@@ -1,4 +1,13 @@
 # Databricks notebook source
+# MAGIC %run "../ADB/run_variables_and_widgets"
+# MAGIC
+
+# COMMAND ----------
+
+raw_folder_path
+
+# COMMAND ----------
+
 from pyspark.sql.types import StructType,StructField,StringType,IntegerType,FloatType
 lap_schema = StructType([
     StructField("race_id",IntegerType(),False),
@@ -9,7 +18,7 @@ lap_schema = StructType([
      StructField("milliseconds",FloatType(),True),
     
 ])
-lap_df = spark.read.schema(lap_schema).csv("/mnt/formulad111/raw/lap_times")
+lap_df = spark.read.schema(lap_schema).csv(f"{raw_folder_path}/lap_times")
 display(lap_df)
 display(lap_df.count())
 
