@@ -28,5 +28,5 @@ display(driver_final_df)
 
 # COMMAND ----------
 
-parquet = driver_final_df.write.mode("overwrite").parquet("/mnt/processed/driver")
+parquet = driver_final_df.write.mode("overwrite").parquet("/mnt/formulad111/processed/driver")
 display(spark.read.parquet("/mnt/processed/driver"))
